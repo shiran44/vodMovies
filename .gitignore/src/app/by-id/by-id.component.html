@@ -1,0 +1,25 @@
+
+    <div class="container">
+  <div class="page-header">
+    <h1>Find movie by id</h1>
+  </div>
+  <div class="row">
+    <form (ngSubmit)="onFindMovie(f)" #f="ngForm">
+      <div class="col-xs-12 col-sm-2  col-sm-offset-3" >
+      <input type="number" name="id" class="form-control" placeholder="Show's Id" ngModel required>
+      </div>
+      <button type="submit" class="col-xs-12 col-sm-1  btn btn-primary" [disabled]="!f.valid">Submit</button>
+    </form>
+  </div>
+  <div class="row">
+   <div *ngIf="!isThereData" class="col-xm-12 col-sm-3 alert alert-info" role="alert">No movie found</div>
+  </div>
+  <div class="row" *ngIf="movie">
+    <ul class="col-xs-12 col-sm-6 list-group">
+      <li class="list-group-item">
+        <span class="badge"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> {{movie.rating}}</span>
+        {{movie.name}}
+      </li>
+    </ul>
+  </div>
+</div>
